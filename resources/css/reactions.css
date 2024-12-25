@@ -1,0 +1,64 @@
+.reactions-container {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.reaction-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.5rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: white;
+}
+
+.reaction-button:hover {
+    background-color: #f7fafc;
+    transform: scale(1.05);
+}
+
+.reaction-button.active {
+    background-color: #ebf8ff;
+    border-color: #4299e1;
+    color: #2b6cb0;
+}
+
+.reaction-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-right: 0.25rem;
+}
+
+.reaction-count {
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+/* أنماط أيقونات التفاعلات */
+.reaction-like { color: #4299e1; }
+.reaction-love { color: #e53e3e; }
+.reaction-haha { color: #ecc94b; }
+.reaction-wow { color: #805ad5; }
+.reaction-sad { color: #718096; }
+.reaction-angry { color: #dd6b20; }
+
+/* تأثيرات التحويم */
+.reaction-button:hover .reaction-icon {
+    transform: scale(1.2);
+    transition: transform 0.2s;
+}
+
+/* تأثير النبض عند النشاط */
+.reaction-button.active .reaction-icon {
+    animation: pulse 1s;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}

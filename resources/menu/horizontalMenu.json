@@ -1,0 +1,184 @@
+{
+  "menu": [
+    {
+      "url": "/",
+      "name": "Home",
+      "icon": "menu-icon tf-icons ri-home-line",
+      "slug": "pages-home"
+    },
+    {
+      "url": "dashboard",
+      "name": "Dashboard",
+      "icon": "menu-icon tf-icons ri-dashboard-line",
+      "slug": "dashboard"
+    },
+    {
+      "name": "Users",
+      "icon": "menu-icon tf-icons ri-team-line",
+      "slug": "app-users",
+      "submenu": [
+        {
+          "url": "dashboard/users",
+          "name": "All Users",
+          "slug": "app-users-all"
+        },
+        {
+          "url": "dashboard/users/create",
+          "name": "Add New User",
+          "slug": "app-users-create"
+        }
+      ]
+    },
+    {
+      "name": "Roles & Permissions",
+      "icon": "menu-icon tf-icons ri-lock-line",
+      "slug": "app-access",
+      "permission": "manage permissions",
+      "submenu": [
+        {
+          "url": "dashboard/roles",
+          "name": "Roles",
+          "slug": "app-access-roles",
+          "permission": "manage permissions"
+        },
+        {
+          "url": "dashboard/permissions",
+          "name": "Permission",
+          "slug": "app-access-permission",
+          "permission": "manage permissions"
+        }
+      ]
+    },
+    {
+      "name": "Classes",
+      "icon": "menu-icon tf-icons ri-building-2-line",
+      "slug": "app-classes",
+      "permission": "manage classes",
+      "submenu": [
+        {
+          "url": "dashboard/classes",
+          "name": "All Classes",
+          "slug": "app-classes-all",
+          "permission": "manage classes"
+        },
+        {
+          "url": "dashboard/classes/create",
+          "name": "Add New Class",
+          "slug": "app-classes-create",
+          "permission": "manage classes"
+        }
+      ]
+    },
+    {
+      "name": "Subjects",
+      "icon": "menu-icon tf-icons ri-book-open-line",
+      "slug": "app-subjects",
+      "permission": "manage subjects",
+      "submenu": [
+        {
+          "url": "dashboard/subjects",
+          "name": "All Subjects",
+          "slug": "app-subjects-all",
+          "permission": "manage subjects"
+        },
+        {
+          "url": "dashboard/subjects/create",
+          "name": "Add New Subject",
+          "slug": "app-subjects-create",
+          "permission": "manage subjects"
+        }
+      ]
+    },
+    {
+      "name": "Semesters",
+      "icon": "menu-icon tf-icons ri-calendar-line",
+      "slug": "app-semesters",
+      "submenu": [
+        {
+          "url": "dashboard/semesters",
+          "name": "All Semesters",
+          "slug": "app-semesters-all"
+        },
+        {
+          "url": "dashboard/semesters/create",
+          "name": "Add New Semester",
+          "slug": "app-semesters-create"
+        }
+      ]
+    },
+    {
+      "name": "Articles",
+      "icon": "menu-icon tf-icons ri-article-line",
+      "slug": "app-articles",
+      "submenu": [
+        {
+          "url": "dashboard/articles",
+          "name": "All Articles",
+          "slug": "app-articles-all"
+        },
+        {
+          "url": "dashboard/articles/create",
+          "name": "Add New Article",
+          "slug": "app-articles-create"
+        }
+      ]
+    },
+    {
+      "name": "Files",
+      "icon": "menu-icon tf-icons ri-file-line",
+      "slug": "app-files",
+      "submenu": [
+        {
+          "url": "dashboard/files",
+          "name": "All Files",
+          "slug": "app-files-all"
+        },
+        {
+          "url": "dashboard/files/create",
+          "name": "Add New File",
+          "slug": "app-files-create"
+        }
+      ]
+    },
+    {
+      "name": "Categories",
+      "icon": "menu-icon tf-icons ri-price-tag-line",
+      "slug": "app-categories",
+      "permission": "manage Categories",
+      "submenu": [
+        {
+          "url": "dashboard/categories",
+          "name": "All Categories",
+          "slug": "app-categories-all",
+          "permission": "manage Categories"
+        },
+        {
+          "url": "dashboard/categories/create",
+          "name": "Add New Category",
+          "slug": "app-categories-create",
+          "permission": "manage Categories"
+        }
+      ]
+    },
+    {
+      "name": "News",
+      "icon": "menu-icon tf-icons ri-newspaper-line",
+      "slug": "app-news",
+      "permission": "manage news",
+      "submenu": [
+        {
+          "url": "dashboard/news",
+          "name": "All News",
+          "slug": "app-news-all",
+          "permission": "manage news"
+        },
+        {
+          "url": "dashboard/news/create",
+          "name": "Add New News",
+          "slug": "app-news-create",
+          "permission": "manage news"
+        }
+      ]
+    }
+  ]
+}

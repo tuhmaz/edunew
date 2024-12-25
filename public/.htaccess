@@ -1,0 +1,79 @@
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    RewriteEngine On
+
+    # حماية الملفات الحساسة
+    <FilesMatch "^\.">
+        Order allow,deny
+        Deny from all
+    </FilesMatch>
+
+    <FilesMatch "(^#.*#|\.(bak|config|dist|fla|inc|ini|log|psd|sh|sql|json|lock|swp)|~)$">
+        Order allow,deny
+        Deny from all
+        Satisfy All
+    </FilesMatch>
+
+    # منع الوصول إلى المجلدات الحساسة
+    RedirectMatch 403 ^/(.git|.env|.config|vendor|node_modules|storage|bootstrap/cache)/.*$
+
+    # منع عرض محتويات المجلدات
+    Options -Indexes
+
+    # منع الوصول إلى ملفات معينة
+    <Files ~ "(composer\.json|composer\.lock|package\.json|package-lock\.json|yarn\.lock|webpack\.mix\.js|phpunit\.xml|\.env\..*|\.gitignore|\.editorconfig)$">
+        Order allow,deny
+        Deny from all
+    </Files>
+
+    # حماية من هجمات PHP
+    <IfModule mod_php.c>
+        php_flag display_errors off
+        php_flag log_errors on
+        php_flag display_startup_errors off
+        php_value error_reporting E_ALL & ~E_DEPRECATED & ~E_STRICT
+        php_value upload_max_filesize 10M
+        php_value post_max_size 10M
+        php_flag allow_url_fopen off
+        php_flag allow_url_include off
+    </IfModule>
+
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
+
+    # إعادة توجيه كل الطلبات غير الموجودة إلى index.php
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+
+    # منع الوصول المباشر إلى الملفات
+    <FilesMatch "\.(php|env|config)$">
+        Order Deny,Allow
+        Deny from all
+        Allow from 127.0.0.1
+    </FilesMatch>
+
+    # السماح بالوصول إلى index.php
+    <Files "index.php">
+        Order Allow,Deny
+        Allow from all
+    </Files>
+
+    # حماية من XSS وغيرها من الهجمات
+    <IfModule mod_headers.c>
+        Header set X-Content-Type-Options "nosniff"
+        Header set X-Frame-Options "SAMEORIGIN"
+        Header set X-XSS-Protection "1; mode=block"
+        Header always append X-Frame-Options SAMEORIGIN
+        Header set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+    </IfModule>
+</IfModule>
